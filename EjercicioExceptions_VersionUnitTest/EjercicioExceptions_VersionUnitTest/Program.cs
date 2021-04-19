@@ -10,11 +10,16 @@ namespace EjercicioExceptions
     {
         static void Main(string[] args)
         {
+            int dividendo = 10;
+            int divisor = 0;
+            string dividendoStr = "10";
+            string divisorStr = "";
+
             // Ejercicio 1
 
             try
             {
-                EjercicioExceptions.divisionUno(5, 0);
+                EjercicioExceptions.divisionUno(dividendo, divisor);
             }
 
             catch (DivideByZeroException ex)
@@ -36,7 +41,7 @@ namespace EjercicioExceptions
 
             try
             {
-                double resultado = EjercicioExceptions.divisionDos("1", "0");
+                double resultado = EjercicioExceptions.divisionDos(dividendoStr, divisorStr);
                 Console.WriteLine($"Resultado: {resultado}");
             }
 
