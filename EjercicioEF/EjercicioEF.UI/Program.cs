@@ -16,8 +16,6 @@ namespace EjercicioEF.UI
         public static void Main(string[] args)
         {
 
-            // Mostrar lista de categorias
-
             CategoriesLogic categoriesLogic = new CategoriesLogic();
             ShippersLogic shippersLogic = new ShippersLogic();
             string categoryName;
