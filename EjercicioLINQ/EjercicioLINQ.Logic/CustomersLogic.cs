@@ -66,7 +66,29 @@ namespace EjercicioLINQ.Logic
 
         }
 
-     
-        
+        public List<CustomerCantOrders> CustomerCantOrders()
+        {
+
+            var query = from customers in context.Customers
+                        join orders in context.Orders
+                        on customers.CustomerID equals orders.CustomerID
+                        group customers by new { customers.CustomerID, customers.CompanyName } into g
+                        orderby g.Count() descending
+                        select new CustomerCantOrders
+                        {
+
+                            CompanyName = g.Key.CompanyName,
+                            CustomerID = g.Key.CustomerID,
+                            CantOrders = g.Count(),
+
+                        };
+
+
+            return query.ToList();
+
+
+        }
+
+
     }
 }

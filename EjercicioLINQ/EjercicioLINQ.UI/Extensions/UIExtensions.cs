@@ -67,7 +67,7 @@ namespace EjercicioLINQ.Extensions
         {
                 foreach (var item in list) 
             {
-                Console.WriteLine($"CustomerID: {item.CustomerID} CompanyName: {item.CompanyName} Orders: {item.CantOrders}");
+                Console.WriteLine($"CustomerID: {item.CustomerID} Company Name: {item.CompanyName} Orders: {item.CantOrders}");
             }
         }
     }

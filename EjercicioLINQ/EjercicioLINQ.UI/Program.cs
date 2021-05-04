@@ -143,6 +143,13 @@ namespace EjercicioLINQ.UI
 
                         break;
 
+                    case 13:
+                        // Devolver los customer con la cantidad de ordenes asociadas
+
+                        customersLogic.CustomerCantOrders().PrintList();
+
+                        break;
+
                 }
 
                 Console.WriteLine("Presione  Para Continuar");
@@ -153,7 +160,7 @@ namespace EjercicioLINQ.UI
 
             }
 
-            while (option != 13);
+            while (option != 14);
 
 
         }

@@ -76,7 +76,6 @@ namespace EjercicioLINQ.Logic
         public Products FirstElement()
         {
             var query = from products in context.Products
-                        orderby products.UnitsInStock descending
                         select products;
 
             return query.First();
