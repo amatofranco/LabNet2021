@@ -9,11 +9,12 @@ namespace EjercicioLINQ.Logic
 {
     public class CustomersLogic : BaseLogic, IListLogic<Customers>
     {
-        public string GetFirst()
+        public Customers GetFirst()
         {
             var customer = context.Customers.First();
 
-            return $"Id Customer: {customer.CustomerID}, Company Name: {customer.CompanyName}";
+            return customer;
+
         }
 
         public List<Customers> GetList()

@@ -35,7 +35,7 @@ namespace EjercicioLINQ.UI
 
                         // Devolver objeto customer
 
-                        Console.WriteLine(customersLogic.GetFirst());
+                        customersLogic.GetFirst().PrintCustomer();
 
                         break;
 

@@ -18,6 +18,12 @@ namespace EjercicioLINQ.Extensions
 
         }
 
+        public static void PrintCustomer (this Customers customer)
+        {
+            Console.WriteLine ($"Id Customer: {customer.CustomerID}, Company Name: {customer.CompanyName}");
+
+        }
+
         public static void PrintList(this List<Products> list)
         {
             foreach (Products product in list)
