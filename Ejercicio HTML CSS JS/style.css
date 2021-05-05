@@ -1,0 +1,68 @@
+
+
+body{
+
+    background-color: rgb(199, 217, 245);
+    margin-top: 20px;
+}
+
+form{
+    display: inline;
+}
+
+
+h2,h3 {
+    text-align: center;    
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+button{
+    margin-left: 30px;
+}
+
+
+
+.container {
+    border-radius: 10px;
+    background-color: #1f5a75 ;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin: 30px auto;
+    box-shadow: 10px 5px 10px rgb(51, 48, 48);
+
+  }
+
+
+.info{
+
+    margin: 30px;
+
+    padding: 10px;
+
+    background-image: linear-gradient(rgb(138, 189, 212),rgb(161, 196, 236));
+
+    border-radius: 10px;
+
+    box-shadow: 5px 5px 10px rgb(51, 48, 48);
+
+    
+}
+  
+  #personalInfo, #aditionalInfo{
+
+    font-size: 20px;
+
+    font-weight: bold;   
+  }
+
+  
+#inputAge, #inputName, #inputLastname, #inputCompany{
+
+    width: 80%;
+    margin: 10px;
+}
+
+
