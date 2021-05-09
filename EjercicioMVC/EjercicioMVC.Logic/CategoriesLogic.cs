@@ -12,12 +12,19 @@ namespace EjercicioMVC.Logic
     {
         public List<Categories> GetList()
         {
-           return context.Categories.ToList();
+            try
+            {
+                return context.Categories.ToList();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-        
 
-        public Categories Add (Categories category)
+
+        public Categories Add(Categories category)
         {
             try
             {
@@ -26,14 +33,14 @@ namespace EjercicioMVC.Logic
             }
             catch (System.Data.Entity.Validation.DbEntityValidationException)
             {
-                throw new ArgumentException();
-                
+                throw new NullReferenceException();
+
             }
 
             return category;
         }
 
-        public Categories Delete (int idCategory)
+        public Categories Delete(int idCategory)
         {
             Categories category = null;
 
@@ -49,16 +56,16 @@ namespace EjercicioMVC.Logic
 
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                throw new UpdateException();
+                throw new DbUpdateException();
 
             }
-           
+
 
             return category;
 
         }
 
-        public Categories Update (int id, string name, string description, byte[] picture)
+        public Categories Update(int id, string name, string description, byte[] picture)
         {
 
             Categories categoryUpdate = null;
@@ -76,12 +83,33 @@ namespace EjercicioMVC.Logic
 
             catch (NullReferenceException)
             {
-                throw new ArgumentNullException();
+                throw ;
             }
 
             return categoryUpdate;
         }
-        
-       
+
+
+        public Categories Find(int id)
+        {
+            Categories category = null;
+
+            try
+            {
+               category = context.Categories.Find(id);
+
+            }
+            catch (NullReferenceException ex) {
+
+                throw;
+            }
+
+            return category;
+        }
+
+
+
+
+
     }
 }

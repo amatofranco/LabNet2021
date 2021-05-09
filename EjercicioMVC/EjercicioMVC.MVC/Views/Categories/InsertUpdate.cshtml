@@ -1,0 +1,37 @@
+﻿@model EjercicioMVC.MVC.Models.CategoriesView
+
+@{
+    ViewBag.Title = "Insertar o Editar Categoria";
+}
+
+<style>
+</style>
+
+<h1>Insertar o Editar Categoría</h1>
+
+
+
+@using (Html.BeginForm("InsertUpdate", "Categories", FormMethod.Post))
+{
+    @Html.HiddenFor(c => c.CategoryId);
+
+
+    <div class="form-group" style=" width: 400px;  background-color: lightsteelblue; padding: 50px 30px; border-radius: 30px; box-shadow: 10px 5px 5px black">
+
+        <div>
+            <label> Nombre Categoria: </label>
+            @Html.EditorFor(c => c.CategoryName, new { htmlAttributes = new { @class = "form-control" }, })
+            @Html.ValidationMessageFor(c => c.CategoryName, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            <label> Descripcion: </label>
+            @Html.EditorFor(c => c.CategoryDescription, new { htmlAttributes = new { @class = "form-control" }, })
+            @Html.ValidationMessageFor(c => c.CategoryDescription, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Guardar" onclick="return confirm('Confirme para guardar')" }) />
+}
+

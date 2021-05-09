@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EjercicioMVC.Logic.Exceptions  
 {
-    public class UpdateException : Exception
+    public class DbUpdateException : Exception
     {
-        public UpdateException() : base()
+        public DbUpdateException() : base()
         {
 
         }
