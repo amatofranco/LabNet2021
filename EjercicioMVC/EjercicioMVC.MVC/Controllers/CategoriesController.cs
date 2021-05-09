@@ -78,15 +78,15 @@ namespace EjercicioMVC.MVC.Controllers
 
         public ActionResult InsertUpdate(CategoriesView categoriesView)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+
+            }
+
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return View();
-
-                }
-
-
+       
                 if (categoriesView.CategoryId == null)
                 {
 
