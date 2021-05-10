@@ -1,0 +1,40 @@
+﻿@model EjercicioWebApi.MVC.Models.PokemonInfo
+
+
+@{
+    ViewBag.Title = "GetInfo";
+
+
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Height</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Image</th>
+
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+        <tr>
+            <th scope="row">@Model.Id </th>
+            <th scope="row">@Model.Name </th>
+            <th scope="row">@Model.Height </th>
+            <th scope="row">@Model.Weight </th>
+            <th scope="row"> <img src="@Html.Raw(Model.Sprite.front_default)" />
+
+
+            <td></td>
+        </tr>
+    </tbody>
+</table>          
+
+@Html.ActionLink("Volver", "Index", "WebApi", new { @class = "btn btn-primary" })
+
+

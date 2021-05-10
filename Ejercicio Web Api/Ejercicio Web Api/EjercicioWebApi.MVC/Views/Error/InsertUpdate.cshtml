@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Insert Update Error";
+}
+
+
+<div class="alert alert-danger" role="alert">
+    <h2>No pudo realizarse el ingreso de la categoria. Intente nuevamente</h2>
+
+</div>
+
+@Html.ActionLink("Insertar Categoria", "InsertUpdate", "Categories", new { area = "" }, new { @class = "btn btn-primary" })
+

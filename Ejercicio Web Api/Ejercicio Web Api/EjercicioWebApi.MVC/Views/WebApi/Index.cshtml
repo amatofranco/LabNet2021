@@ -1,0 +1,35 @@
+﻿@model List<EjercicioWebApi.MVC.Models.Pokemon>
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Primeros 50 Pokemons</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Info</th>
+
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+        @foreach (var pokemon in Model)
+        {
+        <tr>
+            <th scope="row">@pokemon.Name </th>
+            <th scope="row">@Html.ActionLink("Info", "GetInfo", "WebApi", new { url = @pokemon.Url }, new { @class = "btn btn-primary" }) </th>
+            <td></td>
+
+
+        </tr>
+        }
+    </tbody>
+</table>
+
