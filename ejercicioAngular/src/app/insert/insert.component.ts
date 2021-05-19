@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ApiService } from '../service/apiService';
 
 @Component({
@@ -11,7 +12,10 @@ import { ApiService } from '../service/apiService';
 export class InsertComponent implements OnInit {
 
 
-  form: FormGroup;
+  public form: FormGroup;
+
+  private subscription: Subscription;
+
 
   get getNombre(): AbstractControl {
     return this.form.get('CategoryName');
@@ -24,7 +28,9 @@ export class InsertComponent implements OnInit {
   constructor(
     private readonly formBuilder: FormBuilder,
     public service: ApiService,
-    private router: Router) { }
+    private router: Router,
+
+  ) { }
 
 
   ngOnInit(): void {
@@ -40,9 +46,14 @@ export class InsertComponent implements OnInit {
 
   }
 
+  ngOnDestroy(){
+
+    this.subscription.unsubscribe();
+  }
+
   submit(): void {
 
-    this.service.insertCategory(this.form.value).subscribe(res => {
+    this.subscription = this.service.insertCategory(this.form.value).subscribe(res => {
       this.router.navigate(['getlist']);
     },
 

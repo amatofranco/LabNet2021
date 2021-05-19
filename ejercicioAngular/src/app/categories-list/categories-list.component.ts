@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ApiService } from '../service/apiService';
 import { Categories } from '../service/categoriesModel';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-categories-list',
@@ -11,7 +12,8 @@ import { Categories } from '../service/categoriesModel';
 })
 export class CategoriesListComponent implements OnInit {
 
-  categoriesList: Categories[];
+  public categoriesList: Categories[];
+  private subscription: Subscription;
 
   constructor(public service: ApiService,
     private router: Router) { }
@@ -19,13 +21,18 @@ export class CategoriesListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.service.getList().subscribe(
+    this.subscription = this.service.getList().subscribe(
       data => {
         this.categoriesList = data;
       },
       error => {
-        console.log(error);
+        alert(error);
       });
+  }
+
+  ngOnDestroy(){
+
+    this.subscription.unsubscribe();
   }
 
 
@@ -40,13 +47,16 @@ export class CategoriesListComponent implements OnInit {
 
     if (confirm("Confirme para eliminar")) {
 
-      this.service.deleteCategory(categoryId).subscribe(res => {
+      this.subscription = this.service.deleteCategory(categoryId).subscribe(res => {
 
         this.ngOnInit();
         alert("Categoria eliminada");
 
       },
-      );
+
+      error => {
+        alert(error);
+      });
     }
   }
 

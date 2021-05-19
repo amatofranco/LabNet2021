@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ApiService } from '../service/apiService';
 import { Categories } from '../service/categoriesModel';
 
@@ -11,7 +12,8 @@ import { Categories } from '../service/categoriesModel';
 })
 export class UpdateComponent implements OnInit {
 
-  form: FormGroup;
+  public form: FormGroup;
+  private subscription: Subscription;
 
   get getNombre(): AbstractControl {
     return this.form.get('CategoryName');
@@ -36,7 +38,7 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.service.getCategoryId(this.route.snapshot.params['id']).subscribe(
+    this.subscription = this.service.getCategoryId(this.route.snapshot.params['id']).subscribe(
       category => {
         this.category = category;
         this.loadForm();
@@ -57,10 +59,15 @@ export class UpdateComponent implements OnInit {
     });
   }
 
+  ngOnDestroy() {
+
+    this.subscription.unsubscribe();
+  }
+
   submit(): void {
     console.log(this.form.value);
 
-    this.service.updateCategory(this.category.CategoryId, this.form.value).subscribe(res => {
+    this.subscription = this.service.updateCategory(this.category.CategoryId, this.form.value).subscribe(res => {
       console.log('Categoria actualizada!');
       this.router.navigate(['getlist']);
     },
