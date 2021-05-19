@@ -12,8 +12,6 @@ import { UpdateComponent } from './update/update.component';
 import { Categories } from './service/categoriesModel';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogcomponentComponent } from './dialogcomponent/dialogcomponent.component';
-import { DialogComponent } from './dialog/dialog.component';
 
 
 const routes: Routes = [
@@ -43,7 +41,6 @@ const routes: Routes = [
     MatDialogModule,
 
   ],
-  entryComponents: [DialogComponent],
   providers: [Categories],
   bootstrap: [AppComponent]
 })
