@@ -1,0 +1,23 @@
+
+
+<form [formGroup]="form" (ngSubmit)="submit()"  *ngIf="this.form">
+
+    <input type="hidden">
+    <div class="mb-3">
+        <label for="nombre">Nombre Categoria</label>
+        <input formControlName="CategoryName" type="text" class="form-control" id="nombre" aria-describedby="nombre"
+            placeholder="Ingrese nombre">
+        <small *ngIf="getNombre?.invalid && getNombre?.touched" class="text-danger">El nombre es requerido</small> 
+
+    </div>
+    <div class="mb-3">
+        <label for="descripcion">Descripcion</label>
+        <input formControlName="CategoryDescription" type="text" class="form-control" id="descripcion"
+            placeholder="Ingrese descripcion">
+        <small *ngIf="getDescripcion?.invalid && getDescripcion?.touched" class="text-danger">La descripcion es requerida</small> 
+
+    </div>
+        <button [disabled]="!form.valid" type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-danger" (click)="reset()">Reset</button>
+
+</form>

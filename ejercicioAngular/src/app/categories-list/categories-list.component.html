@@ -1,0 +1,27 @@
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categoriesList">
+        <th scope="row">{{category.CategoryId}}</th>
+        <td>{{category.CategoryName}}</td>
+        <td>{{category.CategoryDescription}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="delete(category.CategoryId)">Eliminar</button></td>
+        <td><button type="button" class="btn btn-primary" (click)="update(category.CategoryId)">Editar</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
