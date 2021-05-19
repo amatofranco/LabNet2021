@@ -60,11 +60,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EjercicioMVC.Entities\EjercicioWebApi.Entities.csproj">
+    <ProjectReference Include="..\EjercicioWebApi.Entities\EjercicioWebApi.Entities.csproj">
       <Project>{6aaf06bd-39b4-474c-8555-15d8e2c17bde}</Project>
       <Name>EjercicioWebApi.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EjercicioMVC.Logic\EjercicioWebApi.Logic.csproj">
+    <ProjectReference Include="..\EjercicioWebApi.Logic\EjercicioWebApi.Logic.csproj">
       <Project>{8bae6fd5-a8e9-47cf-b6e5-61c4cf90b6ba}</Project>
       <Name>EjercicioWebApi.Logic</Name>
     </ProjectReference>

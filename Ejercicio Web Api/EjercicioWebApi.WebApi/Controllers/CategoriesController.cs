@@ -8,9 +8,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace EjercicioWebApi.WebApi.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers:"*", methods:"*")]
+
     public class CategoriesController : ApiController
     {
         CategoriesLogic categoriesLogic = new CategoriesLogic();
