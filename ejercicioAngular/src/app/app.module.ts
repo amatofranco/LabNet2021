@@ -10,8 +10,7 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
 import { CommonModule } from '@angular/common';
 import { UpdateComponent } from './update/update.component';
 import { Categories } from './service/categoriesModel';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 const routes: Routes = [
@@ -32,13 +31,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
     RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'}),
-    NoopAnimationsModule,
-    MatDialogModule,
 
   ],
   providers: [Categories],
